@@ -6,6 +6,7 @@
 
 > [!TIP]
 > Have student ID, password, canvas url (example: canvas.university.edu.au)
+>
 > Have your authentication app (Authenticator, Okta) ready as you will need to enter the code in the terminal when prompted
 
 > [!WARNING]  
