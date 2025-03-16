@@ -1,6 +1,7 @@
 # Description: This file is the main file that will be run to start the program.
 from src.canvas_scraper import Canvas
 import getpass
+import time
 
 username = input("Enter username: ") #username is generally your student ID
 password = getpass.getpass('Enter Password:')
@@ -17,5 +18,8 @@ if canvas.check_authenticator_required():
     authenticator_code = input("Enter the authenticator code: ")
     canvas.enter_authenticator_code(authenticator_code)
 
-canvas.close_browser()
+time.sleep(3)
+canvas.open_courselist()
+
+# canvas.close_browser()
 print("Logged in")

@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import os
+import time
 from dotenv import load_dotenv
 
 class Canvas:
@@ -56,3 +57,14 @@ class Canvas:
         authenticator_input.send_keys(authenticator_code) # Send the authenticator code to the authenticator input field
         signin_button = self.driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Verify']") # The CSS selector of the sign in button
         signin_button.click()
+
+    def open_courselist(self):
+        courses_link = self.driver.find_element(By.CSS_SELECTOR, "a#global_nav_courses_link")
+        courses_link.click()
+        time.sleep(3)
+        all_courses_link = self.driver.find_element(By.CSS_SELECTOR, "a.css-treuhc-view-link")
+        all_courses_link.click()
+        print("Opening courses list")
+
+    def close_browser(self):
+        self.driver.quit()
