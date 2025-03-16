@@ -5,9 +5,10 @@ from selenium.webdriver.common.by import By
 import os
 from dotenv import load_dotenv
 import time
+import getpass
 
 username = input("Enter username: ") #username is generally your student ID
-password = input("Enter password: ")
+password = getpass.getpass('Enter Password:')
 
 canvas_url = input("Enter Canvas URL: ") # Canvas URL is the URL of your university's canvas page
 
