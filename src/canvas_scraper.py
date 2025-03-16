@@ -37,12 +37,28 @@ class Canvas:
         next_button.click()
 
     def okta_login(self):
-        username_input = self.driver.find_element(By.ID, "input28")
-        password_input = self.driver.find_element(By.ID, "input36")
-        signin_button = self.driver.find_element(By.CLASS_NAME, "button button-primary")
-        username_input.send_keys(self.username)
-        password_input.send_keys(self.password)
+        username_input = self.driver.find_element(By.ID, "input28") # The ID of the username input field
+        password_input = self.driver.find_element(By.ID, "input36") # The ID of the password input field
+        signin_button = self.driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Sign in']") # The CSS selector of the sign in button
+        username_input.send_keys(self.username) # Send the username to the username input field
+        password_input.send_keys(self.password) # Send the password to the password input field
         signin_button.click()
+
+    def check_authenticator_required(self):
+        try:
+            authenticator_input = self.driver.find_element(By.ID, "input69")
+            return True
+        except:
+            return False
+
+    def enter_authenticator_code(self, authenticator_code):
+        authenticator_input = self.driver.find_element(By.ID, "input69")
+        authenticator_input.send_keys(authenticator_code)
+        signin_button = self.driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Verify']")
+        signin_button.click()
+
+    def close_browser(self):
+        self.driver.quit()
 
 
     def get_username(self):

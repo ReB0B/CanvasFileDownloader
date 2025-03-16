@@ -22,23 +22,24 @@ driver.implicitly_wait(5)  # Apply implicit wait globally
 
 driver.get(canvas_url)
 print("Opened Canvas")
-
+ 
 username_input = driver.find_element(By.ID, "emailAuthCheck")
 next_button = driver.find_element(By.CLASS_NAME, "uon-emailAuthCheckAction")
 username_input.send_keys(username)
 next_button.click()
 
+# Wait for the page to load
 time.sleep(5)
-username_input = driver.find_element(By.ID, "input28")
-password_input = driver.find_element(By.ID, "input36")
-signin_button = driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Sign in']")
-username_input.send_keys(username)
-password_input.send_keys(password)
+username_input = driver.find_element(By.ID, "input28") # The ID of the username input field
+password_input = driver.find_element(By.ID, "input36") # The ID of the password input field
+signin_button = driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Sign in']") # The CSS selector of the sign in button
+username_input.send_keys(username) # Send the username to the username input field
+password_input.send_keys(password) # Send the password to the password input field
 signin_button.click()
 
 authenticator_code = input("Enter the authenticator code: ")
-authenticator_input = driver.find_element(By.ID, "input69")
-authenticator_input.send_keys(authenticator_code)
+authenticator_input = driver.find_element(By.ID, "input69") # The ID of the authenticator input field
+authenticator_input.send_keys(authenticator_code) # Send the authenticator code to the authenticator input field
 signin_button = driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Verify']")
 signin_button.click()
 
