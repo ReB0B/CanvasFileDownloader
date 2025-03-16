@@ -52,29 +52,7 @@ class Canvas:
             return False
 
     def enter_authenticator_code(self, authenticator_code):
-        authenticator_input = self.driver.find_element(By.ID, "input69")
-        authenticator_input.send_keys(authenticator_code)
-        signin_button = self.driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Verify']")
+        authenticator_input = self.driver.find_element(By.ID, "input69") # The ID of the authenticator input field
+        authenticator_input.send_keys(authenticator_code) # Send the authenticator code to the authenticator input field
+        signin_button = self.driver.find_element(By.CSS_SELECTOR, "input.button.button-primary[value='Verify']") # The CSS selector of the sign in button
         signin_button.click()
-
-    def close_browser(self):
-        self.driver.quit()
-
-
-    def get_username(self):
-        return self.username
-
-    def get_password(self):
-        return self.password
-
-    def get_canvas_url(self):
-        return self.canvas_url
-
-    def set_username(self, username):
-        self.username = username
-
-    def set_password(self, password):
-        self.password = password
-
-    def set_canvas_url(self, canvas_url):
-        self.canvas_url = canvas_url
