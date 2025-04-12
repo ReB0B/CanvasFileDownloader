@@ -1,3 +1,7 @@
+# ********************************************************************************************************************
+# This is a test script to log in to a university's Canvas page using Selenium WebDriver.
+
+
 # from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service
 # from selenium.webdriver.chrome.options import Options
